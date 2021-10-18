@@ -3,8 +3,8 @@ import cors from 'cors';
 import cookieParser from 'cookie-parser';
 import dotenv from 'dotenv';
 import mongoose from 'mongoose';
-import router from './router/router.js';
-import errorMiddleware from './exceptions/error-middleware.js';
+import router from './backend/router/router.js';
+import errorMiddleware from './backend/exceptions/error-middleware.js';
 
 dotenv.config();
 const app = express();
