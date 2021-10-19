@@ -1,0 +1,14 @@
+<div class="login-form-container">
+  <form [formGroup]="loginForm" (submit)="login()">
+    <div class="field">
+      <tui-input formControlName="email">Type an email</tui-input>
+      <tui-field-error formControlName="email">Wrong email</tui-field-error>
+    </div>
+    <div class="field">
+      <tui-input-password formControlName="password">Password</tui-input-password>
+      <tui-field-error formControlName="password">Wrong password</tui-field-error>
+    </div>
+    <button tuiButton [disabled]="loginForm.invalid">Login</button>
+  </form>
+</div>
+
