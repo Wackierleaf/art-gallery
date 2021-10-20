@@ -8,9 +8,19 @@ import {ArtWorkComponent} from "./art-works/components/art-work/art-work.compone
 import {ArtWorksGuard} from "./auth/guards/art-works.guard";
 
 const routes: Routes = [
-  {path: 'login', component: LoginComponent, canActivate: [AuthGuard]},
-  {path: '', component: LendingLayoutComponent},
-  {path: 'art-works', component: ArtWorkComponent, canActivate: [ArtWorksGuard], canLoad: [ArtWorksGuard]},
+  {
+    path: '',
+    loadChildren: () => import('./lending/lending.module').then(m => m.LendingModule)
+  },
+  {
+    path: 'login',
+    loadChildren: () => import('./auth/auth.module').then(m => m.AuthModule),
+    canActivate: [AuthGuard]},
+  {
+    path: 'art-works',
+    loadChildren: () => import('./art-works/art-works.module').then(m => m.ArtWorksModule),
+    canActivate: [ArtWorksGuard],
+    canLoad: [ArtWorksGuard]},
   {path: '**', component: NotFoundComponent}
 ];
 

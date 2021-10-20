@@ -5,6 +5,7 @@ import {LoginComponent} from "./components/login/login.component";
 import {ReactiveFormsModule} from "@angular/forms";
 import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
 import {TokenInterceptor} from "./token.interceptor";
+import {AuthRoutingModule} from "./auth-routing.module";
 
 
 
@@ -16,7 +17,8 @@ import {TokenInterceptor} from "./token.interceptor";
     CommonModule,
     TaigaModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    AuthRoutingModule
   ],
   providers: [
     {

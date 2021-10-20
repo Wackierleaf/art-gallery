@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
-import {API_URL} from "../../constants";
 import {Observable} from "rxjs";
 import {IUser} from "./auth.service";
 
@@ -26,14 +25,14 @@ export class AuthApiService {
   constructor(private readonly http: HttpClient) { }
 
   public auth(authData: IAuthData): Observable<ILoggedData> {
-    return this.http.post<ILoggedData>(API_URL + this.LOGIN_URL, authData);
+    return this.http.post<ILoggedData>(this.LOGIN_URL, authData);
   }
 
   public logout(logoutData: IAuthData) {
-    return this.http.post(API_URL + this.LOGOUT_URL, logoutData);
+    return this.http.post(this.LOGOUT_URL, logoutData);
   }
 
   public refresh(): Observable<ILoggedData> {
-    return this.http.get<ILoggedData>(API_URL + this.REFRESH_URL);
+    return this.http.get<ILoggedData>(this.REFRESH_URL);
   }
 }
