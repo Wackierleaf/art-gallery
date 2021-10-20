@@ -9,15 +9,21 @@
 
 .login-form-container {
   align-self: center;
-  width: 26%;
+  width: 40%;
 
   form {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    font-size: 13pt;
 
-    .field {
-      margin-bottom: 20px;
+    mat-form-field {
+      margin-bottom: 1%;
+    }
+
+    button {
+      padding: 10px;
+      font-size: 13pt;
     }
   }
 }

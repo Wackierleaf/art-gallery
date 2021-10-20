@@ -10,18 +10,22 @@ import {ArtWorksGuard} from "./auth/guards/art-works.guard";
 const routes: Routes = [
   {
     path: '',
-    loadChildren: () => import('./lending/lending.module').then(m => m.LendingModule)
+    loadChildren: () => import('./layout-authorized/layout-authorized.module').then(m => m.LayoutAuthorizedModule)
   },
   {
     path: 'login',
     loadChildren: () => import('./auth/auth.module').then(m => m.AuthModule),
-    canActivate: [AuthGuard]},
+    canActivate: [AuthGuard]
+  },
   {
     path: 'art-works',
     loadChildren: () => import('./art-works/art-works.module').then(m => m.ArtWorksModule),
     canActivate: [ArtWorksGuard],
     canLoad: [ArtWorksGuard]},
-  {path: '**', component: NotFoundComponent}
+  {
+    path: '**',
+    component: NotFoundComponent
+  }
 ];
 
 @NgModule({

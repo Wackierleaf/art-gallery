@@ -12,6 +12,8 @@ import {Router} from "@angular/router";
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class LoginComponent implements OnInit, OnDestroy {
+  hide: boolean = true;
+
   private readonly subListDestroy: Subscription = new Subscription();
   constructor(
     private readonly formBuilder: FormBuilder,
