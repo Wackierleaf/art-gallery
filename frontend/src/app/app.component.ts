@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
 import {TranslateService} from "@ngx-translate/core";
 
 @Component({
@@ -10,7 +10,7 @@ export class AppComponent {
   title = 'frontend';
 
   constructor(
-    public readonly translate: TranslateService
+    public readonly translate: TranslateService,
   ) {
     translate.addLangs(['en', 'ru']);
     translate.setDefaultLang('ru');

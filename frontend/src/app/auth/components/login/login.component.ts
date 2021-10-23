@@ -31,12 +31,11 @@ export class LoginComponent implements OnInit, OnDestroy {
   }
 
   public login() {
-    console.log(this.loginForm.value);
     this.subListDestroy.add(
       this.authService.login(this.loginForm.value as IAuthData)
         .subscribe( success => {
           if (success) {
-            this.router.navigate(['/art-works']);
+            this.router.navigate(['/main']);
           }
         })
     );

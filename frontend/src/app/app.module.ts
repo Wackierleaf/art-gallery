@@ -5,7 +5,6 @@ import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
 import {ReactiveFormsModule} from "@angular/forms";
 import {AuthModule} from "./auth/auth.module";
-import {LendingModule} from "./lending/lending.module";
 import {API_URL, ApiInterceptor} from "./api.interceptor";
 import {environment} from "../environments/environment";
 import {HTTP_INTERCEPTORS, HttpClient} from "@angular/common/http";
@@ -23,7 +22,6 @@ export function HttpLoaderFactory(http: HttpClient) {
   ],
   imports: [
     AuthModule,
-    LendingModule,
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
