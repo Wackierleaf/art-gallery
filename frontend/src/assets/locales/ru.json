@@ -6,5 +6,11 @@
 		"PASSWORD-ERROR": "Введите правильный пароль",
 		"PASSWORD-LABEL": "Введите пароль",
 		"SIGN-IN": "Войти"
+	},
+	"MAIN": {
+		"HEADER": "Art Gallery",
+		"MENU": {
+			"LOGOUT": "Выйти"
+		}
 	}
 }
