@@ -28,8 +28,8 @@ export class AuthApiService {
     return this.http.post<ILoggedData>(this.LOGIN_URL, authData);
   }
 
-  public logout(logoutData: IAuthData) {
-    return this.http.post(this.LOGOUT_URL, logoutData);
+  public logout() {
+    return this.http.post(this.LOGOUT_URL, null);
   }
 
   public refresh(): Observable<ILoggedData> {

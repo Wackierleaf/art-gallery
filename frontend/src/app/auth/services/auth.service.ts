@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import {AuthApiService, IAuthData, ILoggedData} from "./auth-api.service";
 import {Observable, of} from "rxjs";
 import {catchError, mapTo, tap} from "rxjs/operators";
+import {Router} from "@angular/router";
 
 export interface IUser {
   email: string,
@@ -17,7 +18,10 @@ export class AuthService {
   private readonly REFRESH_TOKEN = 'REFRESH_TOKEN';
   private loggedUser: IUser | null = null;
 
-  constructor(private readonly authApi: AuthApiService) {
+  constructor(
+    private readonly authApi: AuthApiService,
+    private readonly router: Router,
+    ) {
   }
 
   public login(authData: IAuthData): Observable<Boolean> {
@@ -32,21 +36,14 @@ export class AuthService {
   }
 
   public logout() {
-    if (this.loggedUser) {
-      const logoutData: IAuthData = {
-        email: this.loggedUser.email,
-        password: this.loggedUser.password
-      }
-
-      this.authApi.logout(logoutData).pipe(
+      this.authApi.logout().pipe(
         tap(() => this.doLogoutUser()),
         mapTo(true),
         catchError(error => {
           alert(error.error);
           return of(false);
-        })
-      );
-    }
+        }),
+      ).subscribe(() => this.router.navigate(['/login']));
   }
 
   public get isLoggedIn() {
