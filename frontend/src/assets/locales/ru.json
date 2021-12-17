@@ -1,20 +1,31 @@
 {
+	"COMMON": {
+		"CANCEL": "Отменить"
+	},
 	"LOGIN": {
 		"EMAIL-ERROR": "Введите правильный email",
 		"EMAIL-LABEL": "Введите email",
 		"EMAIL-PLACEHOLDER": "pat@example.com",
 		"PASSWORD-ERROR": "Введите правильный пароль",
 		"PASSWORD-LABEL": "Введите пароль",
+		"REGISTRATION": "Регистрация",
 		"SIGN-IN": "Войти"
 	},
 	"MAIN": {
 		"HEADER": "Art Gallery",
 		"MENU": {
 			"LOGOUT": "Выйти"
-		},
-    "LANGUAGES": {
-      "ENGLISH": "Английский",
-      "RUSSIAN": "Русский"
-    }
+		}
+	},
+	"REGISTRATION": {
+		"CITY": "Введите свой город",
+		"EMAIL": "Email",
+		"GENERAL-SECTION": "Ваши данные",
+		"HEADER": "Регистрация",
+		"NAME": "Полное имя",
+		"PASSWORD": "Пароль",
+		"PASSWORD-CONFIRMATION": "Повторите пароль",
+		"PASSWORD-SECTION": "Пароль",
+		"REGISTER": "Зарегистрироваться"
 	}
 }

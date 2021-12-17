@@ -1,10 +1,12 @@
 <div class="login-form-container">
   <form [formGroup]="loginForm" (submit)="login()">
+<!--    EMAIL-->
     <mat-form-field appearance="fill">
       <mat-label> {{'LOGIN.EMAIL-LABEL' | translate}}</mat-label>
       <input placeholder="{{'LOGIN.EMAIL-PLACEHOLDER' | translate}}" type="email" matInput formControlName="email">
       <mat-error>{{'LOGIN.EMAIL-ERROR' | translate}}</mat-error>
     </mat-form-field>
+<!--    PASSWORD-->
     <mat-form-field appearance="fill">
       <mat-label>{{'LOGIN.PASSWORD-LABEL' | translate}}</mat-label>
       <input [type]="hide ? 'password' : 'text'" matInput formControlName="password">
@@ -14,6 +16,7 @@
       <mat-error>{{'LOGIN.PASSWORD-ERROR' | translate}}</mat-error>
     </mat-form-field>
     <button mat-raised-button color="primary" [disabled]="loginForm.invalid">{{'LOGIN.SIGN-IN' | translate}}</button>
-  </form>
+    <button [disableRipple]="true" (click)="openRegistrationWindow()" type="button" class="reg-btn" mat-button>{{'LOGIN.REGISTRATION' | translate}}</button>
+ </form>
 </div>
 

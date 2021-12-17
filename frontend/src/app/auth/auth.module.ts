@@ -7,12 +7,14 @@ import {TokenInterceptor} from "./token.interceptor";
 import {AuthRoutingModule} from "./auth-routing.module";
 import {MaterialExModule} from "../tools/material.module";
 import {TranslateModule} from "@ngx-translate/core";
+import { RegistrationComponent } from './components/registration/registration.component';
 
 
 
 @NgModule({
   declarations: [
     LoginComponent,
+    RegistrationComponent,
   ],
   imports: [
     CommonModule,

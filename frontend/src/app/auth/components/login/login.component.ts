@@ -4,6 +4,8 @@ import {AuthService} from "../../services/auth.service";
 import {Subscription} from "rxjs";
 import {IAuthData} from "../../services/auth-api.service";
 import {Router} from "@angular/router";
+import {MatDialog} from "@angular/material/dialog";
+import {RegistrationComponent} from "../registration/registration.component";
 
 @Component({
   selector: 'app-login',
@@ -19,6 +21,7 @@ export class LoginComponent implements OnInit, OnDestroy {
     private readonly formBuilder: FormBuilder,
     private readonly authService: AuthService,
     private readonly router: Router,
+    private readonly dialog: MatDialog,
   ) { }
 
   loginForm: FormGroup;
@@ -43,5 +46,12 @@ export class LoginComponent implements OnInit, OnDestroy {
 
   ngOnDestroy() {
     this.subListDestroy.unsubscribe();
+  }
+
+  openRegistrationWindow() {
+    const dialogRef = this.dialog.open(RegistrationComponent, {
+      width: 'fit-content',
+      height: 'fit-content'
+    })
   }
 }

@@ -1,0 +1,43 @@
+<h1>{{'REGISTRATION.HEADER' | translate}}</h1>
+<div mat-dialog-content class="dialog-content">
+  <form>
+    <h3>{{'REGISTRATION.GENERAL-SECTION' | translate}}</h3>
+    <mat-divider></mat-divider>
+    <div class="general-section">
+      <!--    NAME-->
+      <mat-form-field appearance="outline">
+        <mat-label>{{'REGISTRATION.NAME' | translate}}</mat-label>
+        <input matInput>
+      </mat-form-field>
+      <!--    EMAIL-->
+      <mat-form-field appearance="outline">
+        <mat-label>{{'REGISTRATION.EMAIL' | translate}}</mat-label>
+        <input matInput>
+      </mat-form-field>
+      <!--    CITY-->
+      <mat-form-field appearance="outline">
+        <mat-label>{{'REGISTRATION.CITY' | translate}}</mat-label>
+        <input matInput>
+      </mat-form-field>
+    </div>
+
+    <h3>{{'REGISTRATION.PASSWORD-SECTION' | translate}}</h3>
+    <mat-divider></mat-divider>
+    <div class="password-section">
+      <!--    PASSWORD-->
+      <mat-form-field appearance="outline">
+        <mat-label>{{'REGISTRATION.PASSWORD' | translate}}</mat-label>
+        <input matInput>
+      </mat-form-field>
+      <!--    PASSWORD CONFIRMATION-->
+      <mat-form-field appearance="outline">
+        <mat-label>{{'REGISTRATION.PASSWORD-CONFIRMATION' | translate}}</mat-label>
+        <input matInput>
+      </mat-form-field>
+    </div>
+  </form>
+  <div class="btn-container">
+    <button type="button" mat-raised-button (click)="close()">{{'COMMON.CANCEL' | translate}}</button>
+    <button type="button" mat-raised-button color="primary" (click)="submitRegisterForm()">{{'REGISTRATION.REGISTER' | translate}}</button>
+  </div>
+</div>
