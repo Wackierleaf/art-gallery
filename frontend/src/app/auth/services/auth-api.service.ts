@@ -21,6 +21,7 @@ export class AuthApiService {
   private readonly LOGIN_URL = 'api/login';
   private readonly LOGOUT_URL = 'api/logout';
   private readonly REFRESH_URL ='api/refresh';
+  private readonly REGISTRATION_URL = 'api/registration';
 
   constructor(private readonly http: HttpClient) { }
 
@@ -34,5 +35,9 @@ export class AuthApiService {
 
   public refresh(): Observable<ILoggedData> {
     return this.http.get<ILoggedData>(this.REFRESH_URL);
+  }
+
+  public register(userData: IUser): Observable<IUser> {
+    return this.http.post<IUser>(this.REGISTRATION_URL, userData);
   }
 }

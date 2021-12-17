@@ -20,6 +20,9 @@
 	"REGISTRATION": {
 		"CITY": "Введите свой город",
 		"EMAIL": "Email",
+		"ERRORS": {
+			"NOT-SAME": "Пароли не совпадают"
+		},
 		"GENERAL-SECTION": "Ваши данные",
 		"HEADER": "Регистрация",
 		"NAME": "Полное имя",

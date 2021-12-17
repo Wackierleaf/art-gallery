@@ -20,6 +20,9 @@
 	"REGISTRATION": {
 		"CITY": "Enter your city",
 		"EMAIL": "Email",
+		"ERRORS": {
+			"NOT-SAME": "Passwords do not match"
+		},
 		"GENERAL-SECTION": "General information",
 		"HEADER": "Registration",
 		"NAME": "Your full name",

@@ -6,6 +6,8 @@ import {Router} from "@angular/router";
 
 export interface IUser {
   email: string,
+  name: string,
+  city: string,
   password: string,
   isActivated: boolean,
 }
@@ -54,6 +56,10 @@ export class AuthService {
     return this.authApi.refresh().pipe(
       tap(loggedData => this.storeAccessToken(loggedData.accessToken))
     );
+  }
+
+  public registerUser(userData: IUser) {
+    return this.authApi.register(userData);
   }
 
   public get getJwtToken() {
