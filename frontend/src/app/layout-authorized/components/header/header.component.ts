@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import {TranslateService} from "@ngx-translate/core";
 
 @Component({
@@ -6,7 +6,7 @@ import {TranslateService} from "@ngx-translate/core";
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss']
 })
-export class HeaderComponent implements OnInit {
+export class HeaderComponent {
 
   isRuLang = true;
 
@@ -14,8 +14,8 @@ export class HeaderComponent implements OnInit {
     private readonly translationService: TranslateService
   ) { }
 
-  ngOnInit(): void {
-
+  get translationKey() {
+    return this.isRuLang ? 'MAIN.LANGUAGES.RUSSIAN' : 'MAIN.LANGUAGES.ENGLISH';
   }
 
   switchLang() {

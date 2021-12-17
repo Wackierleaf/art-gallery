@@ -11,6 +11,10 @@
 		"HEADER": "Art Gallery",
 		"MENU": {
 			"LOGOUT": "Выйти"
-		}
+		},
+    "LANGUAGES": {
+      "ENGLISH": "Английский",
+      "RUSSIAN": "Русский"
+    }
 	}
 }

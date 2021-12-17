@@ -1,7 +1,10 @@
 <mat-toolbar color="primary">
   <div class="toolbar-content">
     <button mat-icon-button (click)="switchLang()">
-      <mat-icon>translate</mat-icon>
+      <mat-icon
+        [ngClass]="isRuLang ? 'white' : 'red'"
+        [matTooltip]="translationKey | translate"
+      >translate</mat-icon>
     </button>
     <div class="art-icon">
       <mat-icon class="icon">brush</mat-icon>
