@@ -7,14 +7,20 @@ import {UserDto} from './user.dto.js';
 import ApiError from '../exceptions/api-error.js';
 
 class UserService {
-    async registration(email, password) {
+    async registration(email, password, city, name) {
         const candidate = await userModel.findOne({email});
         if (candidate) {
             throw ApiError.BadRequest(`User with email ${email} already exist`);
         }
         const passwordHash = await bcrypt.hash(password, 3);
         const activationLink = uuid.v4();
-        const user = await userModel.create({email, password: passwordHash, activationLink});
+        const user = await userModel.create({
+            email,
+            password: passwordHash,
+            activationLink,
+            city,
+            name
+        });
         await mailService.sendActivationMail(email, `${process.env.API_URL}/api/activate/${activationLink}`);
 
         const userDto = new UserDto(user);
