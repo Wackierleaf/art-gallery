@@ -7,9 +7,9 @@ import {Router} from "@angular/router";
 export interface IUser {
   email: string,
   name: string,
-  city: string,
+  city?: string,
   password: string,
-  isActivated: boolean,
+  isActivated?: boolean,
 }
 
 @Injectable({
