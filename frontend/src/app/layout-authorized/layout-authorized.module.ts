@@ -6,6 +6,8 @@ import { HeaderComponent } from './components/header/header.component';
 import {MaterialExModule} from "../tools/material.module";
 import {TranslateModule} from "@ngx-translate/core";
 import { MenuComponent } from './components/menu/menu.component';
+import {SharedModule} from "../shared/shared.module";
+import { FilterPanelComponent } from './components/filter-panel/filter-panel.component';
 
 
 
@@ -13,13 +15,15 @@ import { MenuComponent } from './components/menu/menu.component';
   declarations: [
     LayoutComponent,
     HeaderComponent,
-    MenuComponent
+    MenuComponent,
+    FilterPanelComponent
   ],
-  imports: [
-    CommonModule,
-    LayoutAuthorizedRoutingModule,
-    MaterialExModule,
-    TranslateModule
-  ]
+    imports: [
+        CommonModule,
+        LayoutAuthorizedRoutingModule,
+        MaterialExModule,
+        TranslateModule,
+        SharedModule
+    ]
 })
 export class LayoutAuthorizedModule { }

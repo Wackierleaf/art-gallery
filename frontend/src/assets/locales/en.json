@@ -1,6 +1,8 @@
 {
 	"COMMON": {
-		"CANCEL": "Cancel"
+		"CANCEL": "Cancel",
+		"DELETE": "Delete",
+		"EDIT": "Edit"
 	},
 	"LOGIN": {
 		"EMAIL-ERROR": "Please enter a valid email",
