@@ -1,0 +1,20 @@
+<mat-card class="panel-container">
+  <mat-card-header>
+    <mat-card-title>
+      {{'ART-MANAGEMENT.HEADER' | translate}}
+    </mat-card-title>
+  </mat-card-header>
+
+  <mat-card-content class="content">
+    <mat-form-field appearance="outline" class="search-field">
+      <mat-label>{{'COMMON.SEARCH' | translate}}</mat-label>
+      <input matInput autocomplete="off">
+      <mat-hint>{{('COMMON.MIN-CHAR' | translate) + ' 2'}}</mat-hint>
+    </mat-form-field>
+    <div class="actions">
+      <button color="primary" mat-mini-fab [matTooltip]="'ART-MANAGEMENT.ADD-BTN' | translate" (click)="openArtModal()">
+        <mat-icon>add</mat-icon>
+      </button>
+    </div>
+  </mat-card-content>
+</mat-card>

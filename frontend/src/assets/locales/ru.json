@@ -1,8 +1,18 @@
 {
+	"ART-MANAGEMENT": {
+		"ADD-BTN": "Добавить новый арт-объект",
+		"DIALOG": {
+			"TITLE": "Добавление нового проекта"
+		},
+		"HEADER": "Управление арт-объектами"
+	},
 	"COMMON": {
+		"ADD": "Добавить",
 		"CANCEL": "Отменить",
 		"DELETE": "Удалить",
-		"EDIT": "Изменить"
+		"EDIT": "Изменить",
+		"MIN-CHAR": "Минимум символов:",
+		"SEARCH": "Поиск"
 	},
 	"LOGIN": {
 		"EMAIL-ERROR": "Введите правильный email",
@@ -17,6 +27,10 @@
 		"HEADER": "Art Gallery",
 		"MENU": {
 			"LOGOUT": "Выйти"
+		},
+		"TABS": {
+			"ARTS": "Арт-объекты",
+			"USERS": "Пользователи"
 		}
 	},
 	"REGISTRATION": {

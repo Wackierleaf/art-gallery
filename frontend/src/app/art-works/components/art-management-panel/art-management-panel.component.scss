@@ -1,0 +1,27 @@
+:host {
+  display: flex;
+  align-items: center;
+  margin-top: 20px;
+  width: 100%;
+}
+
+.panel-container {
+  width: calc(100% - 30px);
+}
+
+.content {
+  display: flex;
+  margin-left: 20px;
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  margin-left: 20px;
+  padding-bottom: 20px;
+}
+
+.search-field {
+  min-width: fit-content;
+  width: 300px;
+}

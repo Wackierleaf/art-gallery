@@ -1,0 +1,31 @@
+<h1 mat-dialog-title>{{'ART-MANAGEMENT.DIALOG.TITLE' | translate}}</h1>
+
+<div mat-dialog-content>
+  <form>
+<!--    NAME    -->
+    <mat-form-field appearance="fill">
+      <mat-label>{{'ART-MANAGEMENT.DIALOG.NAME' | translate}}</mat-label>
+      <input matInput>
+    </mat-form-field>
+<!--    TYPE    -->
+    <mat-form-field appearance="fill">
+      <mat-label>{{'ART-MANAGEMENT.DIALOG.TYPE' | translate}}</mat-label>
+      <mat-select>
+        <mat-option>fds</mat-option>
+      </mat-select>
+    </mat-form-field>
+<!--    DESCRIPTION   -->
+    <mat-form-field appearance="fill">
+      <mat-label>{{'ART-MANAGEMENT.DIALOG.DESCRIPTIONs' | translate}}</mat-label>
+      <textarea matInput
+                cdkTextareaAutosize
+                cdkAutosizeMinRows="8"
+                cdkAutosizeMaxRows="15"
+      ></textarea>
+    </mat-form-field>
+  </form>
+</div>
+<div mat-dialog-actions class="modal-actions">
+  <button mat-button>{{'COMMON.CANCEL' | translate}}</button>
+  <button mat-button>{{'COMMON.ADD' | translate}}</button>
+</div>

@@ -6,15 +6,3 @@
 .card-menu-btn {
   margin-left: auto;
 }
-
-@media (min-width: 300px) {
-  .art-card {
-    max-width: calc(100% - 50px);
-  }
-}
-
-@media (min-width: 350px) {
-  .art-card {
-    max-width: 100%;
-  }
-}
