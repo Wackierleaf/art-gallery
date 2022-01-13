@@ -20,10 +20,10 @@ import { AddArtModalComponent } from './components/add-art-modal/add-art-modal.c
     ArtManagementPanelComponent,
     ArtCardComponent
   ],
-  imports: [
-    CommonModule,
-    MaterialExModule,
-    TranslateModule,
-  ]
+    imports: [
+        CommonModule,
+        MaterialExModule,
+        TranslateModule,
+    ]
 })
 export class ArtWorksModule { }

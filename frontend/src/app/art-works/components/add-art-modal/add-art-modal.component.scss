@@ -1,3 +1,37 @@
 .modal-actions {
   justify-content: flex-end;
 }
+
+form {
+  display: grid;
+  height: fit-content;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-column-gap: 20px;
+  grid-row-gap: 10px;
+}
+
+.upload-drop-zone {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem;
+  height: 200px;
+  text-align: center;
+  border: dashed 1px #979797;
+  margin: 0 auto;
+
+
+  $upload-icon-size: 70px;
+  .upload-icon-btn {
+    margin-top: 30px;
+  }
+
+  mat-icon {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    width: $upload-icon-size;
+    height: $upload-icon-size;
+    font-size: $upload-icon-size;
+  }
+}
+

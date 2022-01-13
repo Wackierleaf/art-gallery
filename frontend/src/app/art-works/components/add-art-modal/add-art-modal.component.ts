@@ -12,4 +12,7 @@ export class AddArtModalComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  onFileSelected() {
+
+  }
 }

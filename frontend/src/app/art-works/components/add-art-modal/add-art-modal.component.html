@@ -1,6 +1,6 @@
 <h1 mat-dialog-title>{{'ART-MANAGEMENT.DIALOG.TITLE' | translate}}</h1>
 
-<div mat-dialog-content>
+<div >
   <form>
 <!--    NAME    -->
     <mat-form-field appearance="fill">
@@ -16,16 +16,27 @@
     </mat-form-field>
 <!--    DESCRIPTION   -->
     <mat-form-field appearance="fill">
-      <mat-label>{{'ART-MANAGEMENT.DIALOG.DESCRIPTIONs' | translate}}</mat-label>
+      <mat-label>{{'ART-MANAGEMENT.DIALOG.DESCRIPTION' | translate}}</mat-label>
       <textarea matInput
                 cdkTextareaAutosize
                 cdkAutosizeMinRows="8"
                 cdkAutosizeMaxRows="15"
       ></textarea>
     </mat-form-field>
+    <div>
+      <div class="upload-drop-zone">
+        <span>{{'ART-MANAGEMENT.DIALOG.DROP-FILES' | translate}}</span>
+        <mat-icon>file_upload</mat-icon>
+        <span>{{'COMMON.OR' | translate}}</span>
+        <button type="button" color="primary" class="upload-icon-btn" mat-raised-button (click)="fileInput.click()">
+          {{'ART-MANAGEMENT.DIALOG.BROWSE' | translate}}
+        </button>
+        <input hidden (change)="onFileSelected()" #fileInput type="file" id="file">
+      </div>
+    </div>
   </form>
 </div>
 <div mat-dialog-actions class="modal-actions">
-  <button mat-button>{{'COMMON.CANCEL' | translate}}</button>
+  <button mat-button [mat-dialog-close]>{{'COMMON.CANCEL' | translate}}</button>
   <button mat-button>{{'COMMON.ADD' | translate}}</button>
 </div>

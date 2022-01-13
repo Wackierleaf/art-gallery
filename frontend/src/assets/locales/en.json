@@ -2,7 +2,12 @@
 	"ART-MANAGEMENT": {
 		"ADD-BTN": "Add new art object",
 		"DIALOG": {
-			"TITLE": "Add a new art"
+			"BROWSE": "Browse your images",
+			"DESCRIPTION": "Description",
+			"DROP-FILES": "Drop your images here",
+			"NAME": "Name",
+			"TITLE": "Add a new art",
+			"TYPE": "Type"
 		},
 		"HEADER": "Art Management"
 	},
@@ -12,6 +17,7 @@
 		"DELETE": "Delete",
 		"EDIT": "Edit",
 		"MIN-CHAR": "Minimum characters:",
+		"OR": "Or",
 		"SEARCH": "Search"
 	},
 	"LOGIN": {

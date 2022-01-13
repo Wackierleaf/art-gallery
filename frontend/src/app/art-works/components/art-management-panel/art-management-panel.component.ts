@@ -18,10 +18,10 @@ export class ArtManagementPanelComponent implements OnInit {
 
   openArtModal() {
     const dialogRef = this.dialog.open(AddArtModalComponent, {
-      width: window.innerWidth < 500 ? '100vw' : '50%',
+      width: window.innerWidth < 500 && innerWidth < 1000 ? '100vw' : 'fit-content',
       maxWidth: '100vw',
       maxHeight: '100vh',
-      height: window.innerHeight < 800 && window.innerWidth < 500 ? '100%' : '60%',
+      height: window.innerHeight < 900 && window.innerWidth < 500 ? '100%' : 'fit-content',
     })
   }
 }
