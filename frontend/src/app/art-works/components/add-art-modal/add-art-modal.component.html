@@ -1,6 +1,6 @@
 <h1 mat-dialog-title>{{'ART-MANAGEMENT.DIALOG.TITLE' | translate}}</h1>
 
-<div >
+<div>
   <form>
 <!--    NAME    -->
     <mat-form-field appearance="fill">
@@ -23,18 +23,27 @@
                 cdkAutosizeMaxRows="15"
       ></textarea>
     </mat-form-field>
-    <div>
-      <div class="upload-drop-zone">
-        <span>{{'ART-MANAGEMENT.DIALOG.DROP-FILES' | translate}}</span>
-        <mat-icon>file_upload</mat-icon>
-        <span>{{'COMMON.OR' | translate}}</span>
-        <button type="button" color="primary" class="upload-icon-btn" mat-raised-button (click)="fileInput.click()">
-          {{'ART-MANAGEMENT.DIALOG.BROWSE' | translate}}
-        </button>
-        <input hidden (change)="onFileSelected()" #fileInput type="file" id="file">
+  </form>
+
+  <div class="images">
+    <div class="upload-drop-zone">
+      <span>{{'ART-MANAGEMENT.DIALOG.DROP-FILES' | translate}}</span>
+      <mat-icon class="file-upload-icon">file_upload</mat-icon>
+      <span>{{'COMMON.OR' | translate}}</span>
+      <button type="button" color="primary" class="upload-icon-btn" mat-raised-button (click)="fileInput.click()">
+        {{'ART-MANAGEMENT.DIALOG.BROWSE' | translate}}
+      </button>
+      <input multiple hidden (change)="onImageSelected($event)" #fileInput type="file" id="file">
+      <div class="uploaded-images" *ngIf="uploadedImages.length !== 0">
+        <div *ngFor="let img of uploadedImages" class="image">
+          <span class="name">{{img.name}}</span>
+          <button mat-icon-button>
+            <mat-icon class="delete-uploaded-files-icon">close</mat-icon>
+          </button>
+        </div>
       </div>
     </div>
-  </form>
+  </div>
 </div>
 <div mat-dialog-actions class="modal-actions">
   <button mat-button [mat-dialog-close]>{{'COMMON.CANCEL' | translate}}</button>

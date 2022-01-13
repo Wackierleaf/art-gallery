@@ -14,8 +14,8 @@ form {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 2rem;
-  height: 200px;
+  padding: 1rem;
+  height: fit-content;
   text-align: center;
   border: dashed 1px #979797;
   margin: 0 auto;
@@ -26,12 +26,39 @@ form {
     margin-top: 30px;
   }
 
-  mat-icon {
+  .file-upload-icon {
     margin-top: 20px;
     margin-bottom: 20px;
     width: $upload-icon-size;
     height: $upload-icon-size;
     font-size: $upload-icon-size;
+  }
+
+  .uploaded-images {
+    display: flex;
+    max-width: 100%;
+    flex-direction: column;
+    margin-top: 20px;
+    align-items: flex-start;
+
+    .image {
+      display: flex;
+      flex-wrap: nowrap;
+    }
+
+    .name, .image {
+      margin-top: 5px;
+      width: 100%;
+      text-align: left;
+      white-space: nowrap;
+      align-self: center;
+      text-overflow: ellipsis;
+      overflow: hidden;
+    }
+
+    .delete-uploaded-files-icon {
+      font-size: 20px;
+    }
   }
 }
 

@@ -6,13 +6,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./add-art-modal.component.scss']
 })
 export class AddArtModalComponent implements OnInit {
+  uploadedImages: any[] = [];
 
   constructor() { }
 
   ngOnInit(): void {
   }
 
-  onFileSelected() {
-
+  onImageSelected(value: any) {
+    console.log(value.target.files);
+    this.uploadedImages = value.target.files;
   }
 }
