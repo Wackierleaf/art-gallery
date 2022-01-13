@@ -23,7 +23,7 @@ import { AddArtModalComponent } from './components/add-art-modal/add-art-modal.c
   imports: [
     CommonModule,
     MaterialExModule,
-    TranslateModule
+    TranslateModule,
   ]
 })
 export class ArtWorksModule { }
