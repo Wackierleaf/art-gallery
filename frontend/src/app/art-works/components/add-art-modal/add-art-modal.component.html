@@ -1,30 +1,34 @@
 <h1 mat-dialog-title>{{'ART-MANAGEMENT.DIALOG.TITLE' | translate}}</h1>
 
 <div>
-  <form>
+  <form [formGroup]="artWorkForm">
 <!--    NAME    -->
     <mat-form-field appearance="fill">
       <mat-label>{{'ART-MANAGEMENT.DIALOG.NAME' | translate}}</mat-label>
-      <input matInput>
+      <input matInput formControlName="name">
     </mat-form-field>
 <!--    TYPE    -->
     <mat-form-field appearance="fill">
       <mat-label>{{'ART-MANAGEMENT.DIALOG.TYPE' | translate}}</mat-label>
-      <mat-select>
-        <mat-option>fds</mat-option>
+      <mat-select formControlName="type">
+        <mat-option [value]="art_types.SCULPTURE">{{'ART-MANAGEMENT.DIALOG.TYPE.SCULPTURE' | translate}}</mat-option>
+        <mat-option [value]="art_types.ARCHITECTURE">{{'ART-MANAGEMENT.DIALOG.TYPE.ARCHITECTURE' | translate}}</mat-option>
+        <mat-option [value]="art_types.PICTURES">{{'ART-MANAGEMENT.DIALOG.TYPE.PICTURES' | translate}}</mat-option>
+        <mat-option [value]="art_types.PHOTOS">{{'ART-MANAGEMENT.DIALOG.TYPE.PHOTOS' | translate}}</mat-option>
       </mat-select>
     </mat-form-field>
 <!--    DESCRIPTION   -->
     <mat-form-field appearance="fill">
       <mat-label>{{'ART-MANAGEMENT.DIALOG.DESCRIPTION' | translate}}</mat-label>
       <textarea matInput
+                formControlName="description"
                 cdkTextareaAutosize
                 cdkAutosizeMinRows="8"
                 cdkAutosizeMaxRows="15"
       ></textarea>
     </mat-form-field>
   </form>
-
+<!--IMAGES-->
   <div class="images">
     <div class="upload-drop-zone">
       <span>{{'ART-MANAGEMENT.DIALOG.DROP-FILES' | translate}}</span>
@@ -50,5 +54,5 @@
 </div>
 <div mat-dialog-actions class="modal-actions">
   <button mat-button [mat-dialog-close]>{{'COMMON.CANCEL' | translate}}</button>
-  <button mat-button>{{'COMMON.ADD' | translate}}</button>
+  <button [disabled]="artWorkForm.invalid" mat-button>{{'COMMON.ADD' | translate}}</button>
 </div>

@@ -6,6 +6,7 @@ import {MaterialExModule} from "../tools/material.module";
 import {TranslateModule} from "@ngx-translate/core";
 import {ArtCardComponent} from "./components/art-card/art-card.component";
 import { AddArtModalComponent } from './components/add-art-modal/add-art-modal.component';
+import {ReactiveFormsModule} from "@angular/forms";
 
 
 
@@ -20,10 +21,11 @@ import { AddArtModalComponent } from './components/add-art-modal/add-art-modal.c
     ArtManagementPanelComponent,
     ArtCardComponent
   ],
-    imports: [
-        CommonModule,
-        MaterialExModule,
-        TranslateModule,
-    ]
+  imports: [
+    CommonModule,
+    MaterialExModule,
+    TranslateModule,
+    ReactiveFormsModule,
+  ]
 })
 export class ArtWorksModule { }
