@@ -34,6 +34,9 @@
         {{'ART-MANAGEMENT.DIALOG.BROWSE' | translate}}
       </button>
       <input accept=".jpg,.jpeg,.png" multiple hidden (change)="onImageSelected($event)" #fileInput type="file" id="file">
+      <mat-error *ngIf="filesCountError">
+        {{'ART-MANAGEMENT.DIALOG.ERRORS.IMAGE_COUNT' | translate}}
+      </mat-error>
       <div class="uploaded-images" *ngIf="uploadedImages.length !== 0">
         <div *ngFor="let img of uploadedImages; index as imgIdx" class="image">
           <span class="name">{{img.name}}</span>

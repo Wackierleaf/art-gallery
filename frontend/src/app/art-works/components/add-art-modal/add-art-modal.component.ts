@@ -6,7 +6,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./add-art-modal.component.scss']
 })
 export class AddArtModalComponent implements OnInit {
-  uploadedImages: any[] = [];
+  uploadedImages: File[] = [];
+  filesCountError: boolean = false;
+
+  private checkImgCount() {
+   this.filesCountError = this.uploadedImages.length > 4;
+  }
 
   constructor() { }
 
@@ -15,9 +20,11 @@ export class AddArtModalComponent implements OnInit {
 
   onImageSelected(value: any) {
     this.uploadedImages = [...value.target.files];
+    this.checkImgCount();
   }
 
   deleteSelectedFile(imgIndex: number) {
     this.uploadedImages.splice(imgIndex, 1);
+    this.checkImgCount();
   }
 }

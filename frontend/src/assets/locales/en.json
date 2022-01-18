@@ -5,6 +5,9 @@
 			"BROWSE": "Browse your images",
 			"DESCRIPTION": "Description",
 			"DROP-FILES": "Drop your images here",
+			"ERRORS": {
+				"IMAGE_COUNT": "Maximum count of files is 4"
+			},
 			"NAME": "Name",
 			"TITLE": "Add a new art",
 			"TYPE": "Type"
