@@ -33,12 +33,12 @@
       <button type="button" color="primary" class="upload-icon-btn" mat-raised-button (click)="fileInput.click()">
         {{'ART-MANAGEMENT.DIALOG.BROWSE' | translate}}
       </button>
-      <input multiple hidden (change)="onImageSelected($event)" #fileInput type="file" id="file">
+      <input accept=".jpg,.jpeg,.png" multiple hidden (change)="onImageSelected($event)" #fileInput type="file" id="file">
       <div class="uploaded-images" *ngIf="uploadedImages.length !== 0">
-        <div *ngFor="let img of uploadedImages" class="image">
+        <div *ngFor="let img of uploadedImages; index as imgIdx" class="image">
           <span class="name">{{img.name}}</span>
           <button mat-icon-button>
-            <mat-icon class="delete-uploaded-files-icon">close</mat-icon>
+            <mat-icon class="delete-uploaded-files-icon" (click)="deleteSelectedFile(imgIdx)">close</mat-icon>
           </button>
         </div>
       </div>

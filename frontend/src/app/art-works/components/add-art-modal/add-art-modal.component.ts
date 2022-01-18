@@ -14,7 +14,10 @@ export class AddArtModalComponent implements OnInit {
   }
 
   onImageSelected(value: any) {
-    console.log(value.target.files);
-    this.uploadedImages = value.target.files;
+    this.uploadedImages = [...value.target.files];
+  }
+
+  deleteSelectedFile(imgIndex: number) {
+    this.uploadedImages.splice(imgIndex, 1);
   }
 }

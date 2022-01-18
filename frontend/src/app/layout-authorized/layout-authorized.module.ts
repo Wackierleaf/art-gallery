@@ -6,7 +6,6 @@ import {HeaderComponent} from './components/header/header.component';
 import {MaterialExModule} from "../tools/material.module";
 import {TranslateModule} from "@ngx-translate/core";
 import {MenuComponent} from './components/menu/menu.component';
-import {SharedModule} from "../shared/shared.module";
 import {ArtWorksModule} from "../art-works/art-works.module";
 
 
@@ -21,7 +20,6 @@ import {ArtWorksModule} from "../art-works/art-works.module";
     LayoutAuthorizedRoutingModule,
     MaterialExModule,
     TranslateModule,
-    SharedModule,
     ArtWorksModule,
   ]
 })
