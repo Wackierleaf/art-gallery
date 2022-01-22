@@ -6,7 +6,7 @@ const ArtWorkSchema = new Schema({
   name: {type: String, required: true},
   type: {type: String, required: true},
   description: {type: String, required: true},
-  images: {type: Array},
+  imagesPaths: {type: Array},
 });
 
-export const artWorkModel = model('User', ArtWorkSchema);
+export const artWorkModel = model('ArtWork', ArtWorkSchema);
