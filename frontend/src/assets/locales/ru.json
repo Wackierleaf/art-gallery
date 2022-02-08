@@ -34,6 +34,10 @@
 	},
 	"MAIN": {
 		"HEADER": "Art Gallery",
+		"LANGUAGES": {
+			"ENGLISH": "Английский",
+			"RUSSIAN": "Русский"
+		},
 		"MENU": {
 			"LOGOUT": "Выйти"
 		},

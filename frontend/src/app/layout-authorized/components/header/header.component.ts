@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import {TranslateService} from "@ngx-translate/core";
+import { marker as _ } from '@biesbjerg/ngx-translate-extract-marker';
 
 @Component({
   selector: 'app-header',
@@ -15,7 +16,7 @@ export class HeaderComponent {
   ) { }
 
   get translationKey() {
-    return this.isRuLang ? 'MAIN.LANGUAGES.RUSSIAN' : 'MAIN.LANGUAGES.ENGLISH';
+    return this.isRuLang ? _('MAIN.LANGUAGES.RUSSIAN') : _('MAIN.LANGUAGES.ENGLISH');
   }
 
   switchLang() {
