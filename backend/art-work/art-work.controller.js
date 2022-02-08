@@ -24,7 +24,12 @@ class ArtWorkController {
   }
 
   async getAllArtWork(req, res, next) {
-
+    try {
+      const artWorkData = await artWorkService.getAllArtWork();
+      return res.send(artWorkData);
+    } catch (e) {
+      next(e);
+    }
   }
 
   async editArtWork(req, res, next) {

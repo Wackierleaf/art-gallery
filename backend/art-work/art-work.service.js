@@ -22,6 +22,11 @@ class ArtWorkService {
   }
 
   async getAllArtWork() {
+    const artWorks = await artWorkModel.find();
+    return artWorks;
+  }
+
+  async getImage(path) {
 
   }
 
