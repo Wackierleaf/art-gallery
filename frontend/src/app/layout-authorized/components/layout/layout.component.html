@@ -4,23 +4,9 @@
 <mat-tab-group>
   <mat-tab label="{{'MAIN.TABS.ARTS' | translate}}">
     <div class="tab">
-      <app-art-management-panel></app-art-management-panel>
+      <app-art-management-panel (addEvent)="addNewArtWorkHandler()"></app-art-management-panel>
       <div class="cards-wrapper">
-        <app-art-card></app-art-card>
-        <app-art-card></app-art-card>
-        <app-art-card></app-art-card>
-        <app-art-card></app-art-card>
-        <app-art-card></app-art-card>
-        <app-art-card></app-art-card>
-        <app-art-card></app-art-card>
-        <app-art-card></app-art-card>
-        <app-art-card></app-art-card>
-        <app-art-card></app-art-card>
-        <app-art-card></app-art-card>
-        <app-art-card></app-art-card>
-        <app-art-card></app-art-card>
-        <app-art-card></app-art-card>
-        <app-art-card></app-art-card>
+        <app-art-card *ngFor="let artWork of artWorks$ | async" [artWorkData]="artWork"></app-art-card>
       </div>
     </div>
   </mat-tab>

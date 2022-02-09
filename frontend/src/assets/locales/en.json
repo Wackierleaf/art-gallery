@@ -10,7 +10,13 @@
 			},
 			"NAME": "Name",
 			"TITLE": "Add a new art",
-			"TYPE": "Type"
+			"TYPE": "Type",
+			"TYPES": {
+				"ARCHITECTURE": "",
+				"PHOTOS": "",
+				"PICTURES": "",
+				"SCULPTURE": ""
+			}
 		},
 		"HEADER": "Art Management"
 	},

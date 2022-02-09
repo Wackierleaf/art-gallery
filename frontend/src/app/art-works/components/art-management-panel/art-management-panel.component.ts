@@ -1,4 +1,4 @@
-import {Component, OnDestroy, OnInit} from '@angular/core';
+import {Component, EventEmitter, OnDestroy, OnInit, Output} from '@angular/core';
 import {MatDialog} from "@angular/material/dialog";
 import {AddArtModalComponent} from "../add-art-modal/add-art-modal.component";
 import {Subscription} from "rxjs";
@@ -10,6 +10,8 @@ import {ArtWorksService} from "../../services/art-works.service";
   styleUrls: ['./art-management-panel.component.scss']
 })
 export class ArtManagementPanelComponent implements OnInit, OnDestroy {
+  @Output() addEvent = new EventEmitter();
+
   private subList = new Subscription();
 
   constructor(
@@ -29,7 +31,7 @@ export class ArtManagementPanelComponent implements OnInit, OnDestroy {
     }).afterClosed().subscribe(result => {
       const {name, type, description, files} = result;
       this.artWorkService.createArtWorks(name, type, description, files)
-        .subscribe();
+        .subscribe(() => this.addEvent.emit());
     });
 
     this.subList.add(sub);

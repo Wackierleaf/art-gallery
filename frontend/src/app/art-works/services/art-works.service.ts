@@ -1,18 +1,28 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
+import {ART_TYPES} from "../components/add-art-modal/add-art-modal.component";
 
 export interface ArtWork {
   _id: string
-  type: string
+  name: string
+  type: ART_TYPES
   description: string
   imagesPaths: string[]
 }
+
+export const artWorkTypesTranslationMap = new Map<ART_TYPES, string>([
+  [ART_TYPES.PICTURES, 'ART-MANAGEMENT.DIALOG.TYPES.PICTURES'],
+  [ART_TYPES.ARCHITECTURE, 'ART-MANAGEMENT.DIALOG.TYPES.ARCHITECTURE'],
+  [ART_TYPES.PHOTOS, 'ART-MANAGEMENT.DIALOG.TYPES.PHOTOS'],
+  [ART_TYPES.SCULPTURE, 'ART-MANAGEMENT.DIALOG.TYPES.SCULPTURE'],
+])
 
 @Injectable({
   providedIn: 'root'
 })
 export class ArtWorksService {
   private artWorksUrl = 'api/art-works'
+  private getImgUrl = 'api/image';
 
   constructor(
     private readonly http: HttpClient
@@ -36,7 +46,16 @@ export class ArtWorksService {
     return this.http.post(this.artWorksUrl, formData)
   }
 
+  getArtWorkImg(path: string) {
+    return this.http.get(this.getImgUrl, {
+      params: {
+        path
+      },
+      responseType: 'blob'
+    });
+  }
+
   getArtWorks() {
-    return this.http.get(this.artWorksUrl);
+    return this.http.get<ArtWork[]>(this.artWorksUrl);
   }
 }

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {ArtWork, ArtWorksService} from "../../../art-works/services/art-works.service";
+import {Observable} from "rxjs";
 
 @Component({
   selector: 'app-layout',
@@ -6,6 +8,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./layout.component.scss']
 })
 export class LayoutComponent implements OnInit {
+  artWorks$: Observable<ArtWork[]>;
 
   readonly tabs = [
     'Выставка',
@@ -14,9 +17,20 @@ export class LayoutComponent implements OnInit {
     'Контакты'
   ]
 
-  constructor() { }
+  constructor(
+    private readonly artWorksService: ArtWorksService
+  ) { }
 
-  ngOnInit(): void {
+  private init() {
+    this.artWorks$ = this.artWorksService.getArtWorks();
   }
 
+  ngOnInit(): void {
+    this.init()
+  }
+
+
+  addNewArtWorkHandler() {
+    this.init()
+  }
 }
