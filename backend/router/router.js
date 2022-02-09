@@ -12,7 +12,6 @@ const storage = multer.diskStorage({
     cb(null, DIR);
   },
   filename: (req, file, cb) => {
-    console.log(file);
     const fileName = Date.now() + '-' + file.originalname.toLowerCase();
     cb(null, fileName);
   }
@@ -54,5 +53,6 @@ router.get('/users', authMiddleware, userController.getUsers);
  */
 router.post('/art-works', upload.array('images', 4), artWorkController.createArtWork);
 router.get('/art-works', artWorkController.getAllArtWork);
+router.get('/image', artWorkController.getImage)
 
 export default router;

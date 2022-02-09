@@ -4,9 +4,7 @@ import {ArtWorkDto} from './art-work.dto.js';
 class ArtWorkService {
   async createArtWork(url, name, type, description, images) {
     const imagesPaths = [];
-    console.log(images);
-    images.forEach(img => imagesPaths.push(url + '/public/' + img.filename));
-    console.log(imagesPaths);
+    images.forEach(img => imagesPaths.push(img.filename));
     const artWork = await artWorkModel.create({
       name,
       type,
@@ -24,10 +22,6 @@ class ArtWorkService {
   async getAllArtWork() {
     const artWorks = await artWorkModel.find();
     return artWorks;
-  }
-
-  async getImage(path) {
-
   }
 
   async editArtWork(id) {
