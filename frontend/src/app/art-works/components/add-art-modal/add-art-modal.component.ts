@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
-import {TranslateService} from "@ngx-translate/core";
+import {MatDialogRef} from "@angular/material/dialog";
 
 export enum ART_TYPES {
   SCULPTURE,
@@ -26,7 +26,7 @@ export class AddArtModalComponent implements OnInit {
 
   constructor(
     private readonly formBuilder: FormBuilder,
-    private readonly translate: TranslateService,
+    private readonly dialogRef: MatDialogRef<AddArtModalComponent>,
   ) { }
 
   ngOnInit(): void {
@@ -48,5 +48,10 @@ export class AddArtModalComponent implements OnInit {
     this.uploadedImages.splice(imgIndex, 1);
     this.artWorkForm.get('files')?.patchValue(this.uploadedImages);
     this.checkImgCount();
+  }
+
+  submit() {
+    const result = {...this.artWorkForm.value}
+    this.dialogRef.close(result)
   }
 }

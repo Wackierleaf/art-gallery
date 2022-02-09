@@ -54,5 +54,5 @@
 </div>
 <div mat-dialog-actions class="modal-actions">
   <button mat-button [mat-dialog-close]>{{'COMMON.CANCEL' | translate}}</button>
-  <button [disabled]="artWorkForm.invalid" mat-button>{{'COMMON.ADD' | translate}}</button>
+  <button [disabled]="artWorkForm.invalid" mat-button (click)="submit()">{{'COMMON.ADD' | translate}}</button>
 </div>
