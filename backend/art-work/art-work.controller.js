@@ -37,6 +37,16 @@ class ArtWorkController {
 
   }
 
+  async delete(req, res, next) {
+    try {
+      const {_id} = req.query
+      const deletedArt = await artWorkService.delete(_id)
+      return res.send(deletedArt)
+    } catch (e) {
+      next(e)
+    }
+  }
+
   async getImage(req, res) {
     const { path } = req.query
     const dir = 'E:\\Files\\Учёба\\РПБД\\art-gallery\\backend\\public\\';

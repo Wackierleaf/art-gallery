@@ -54,5 +54,6 @@ router.get('/users', authMiddleware, userController.getUsers);
 router.post('/art-works', upload.array('images', 4), artWorkController.createArtWork);
 router.get('/art-works', artWorkController.getAllArtWork);
 router.get('/image', artWorkController.getImage)
+router.get('/delete-art', artWorkController.delete)
 
 export default router;

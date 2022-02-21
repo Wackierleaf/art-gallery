@@ -27,6 +27,11 @@ class ArtWorkService {
   async editArtWork(id) {
 
   }
+
+  async delete(_id) {
+    const deletedArt = await artWorkModel.deleteOne({_id})
+    return deletedArt
+  }
 }
 
 export default new ArtWorkService();
