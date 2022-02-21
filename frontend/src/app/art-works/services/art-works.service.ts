@@ -23,6 +23,7 @@ export const artWorkTypesTranslationMap = new Map<ART_TYPES, string>([
 export class ArtWorksService {
   private artWorksUrl = 'api/art-works'
   private getImgUrl = 'api/image';
+  private deleteArtWorks = 'api/delete-art'
 
   constructor(
     private readonly http: HttpClient
@@ -57,5 +58,9 @@ export class ArtWorksService {
 
   getArtWorks() {
     return this.http.get<ArtWork[]>(this.artWorksUrl);
+  }
+
+  deleteArtWork(_id: string) {
+    return this.http.get(this.deleteArtWorks,{params: {_id}} )
   }
 }

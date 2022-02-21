@@ -24,6 +24,7 @@
 		"ADD": "Add",
 		"CANCEL": "Cancel",
 		"DELETE": "Delete",
+		"DELETE-CONFIRMATION": "Are you sure you want to delete?",
 		"EDIT": "Edit",
 		"MIN-CHAR": "Minimum characters:",
 		"OR": "Or",

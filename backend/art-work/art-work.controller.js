@@ -50,7 +50,6 @@ class ArtWorkController {
   async getImage(req, res) {
     const { path } = req.query
     const dir = 'E:\\Files\\Учёба\\РПБД\\art-gallery\\backend\\public\\';
-    console.log(dir + path);
     fs.readFile(dir + path, function (error, image) {
       if (error) {
         res.statusCode = 404

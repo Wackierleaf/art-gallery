@@ -33,4 +33,10 @@ export class LayoutComponent implements OnInit {
   addNewArtWorkHandler() {
     this.init()
   }
+
+  artWorkDeleteHandler(result: boolean) {
+    if (result) {
+      this.init()
+    }
+  }
 }

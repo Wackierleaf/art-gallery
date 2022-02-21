@@ -1,7 +1,9 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {ArtWork, ArtWorksService} from "../../services/art-works.service";
 import {artWorkTypesTranslationMap} from "../../services/art-works.service";
 import {ART_TYPES} from "../add-art-modal/add-art-modal.component";
+import {MatDialog} from "@angular/material/dialog";
+import {DeleteDialogComponent} from "../../../common/delete-dialog/delete-dialog.component";
 
 @Component({
   selector: 'app-art-card',
@@ -10,9 +12,11 @@ import {ART_TYPES} from "../add-art-modal/add-art-modal.component";
 })
 export class ArtCardComponent implements OnInit {
   @Input() artWorkData: ArtWork;
+  @Output() delete = new EventEmitter()
   imgUrl: string;
   constructor(
     readonly artWorksService: ArtWorksService,
+    private readonly dialog: MatDialog
   ) { }
 
   ngOnInit(): void {
@@ -28,4 +32,13 @@ export class ArtCardComponent implements OnInit {
     }
   }
 
+  openConfirmationDialog() {
+    const dialogRef = this.dialog.open(DeleteDialogComponent)
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(result)
+      if (result) {
+        this.artWorksService.deleteArtWork(this.artWorkData._id).subscribe(() => this.delete.emit(result))
+      }
+    })
+  }
 }

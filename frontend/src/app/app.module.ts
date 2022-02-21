@@ -11,6 +11,7 @@ import {HTTP_INTERCEPTORS, HttpClient} from "@angular/common/http";
 import {MaterialExModule} from "./tools/material.module";
 import {TranslateLoader, TranslateModule} from "@ngx-translate/core";
 import {TranslateHttpLoader} from "@ngx-translate/http-loader";
+import { DeleteDialogComponent } from './common/delete-dialog/delete-dialog.component';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, 'http://localhost:4200/assets/locales/', '.json');
@@ -19,6 +20,7 @@ export function HttpLoaderFactory(http: HttpClient) {
 @NgModule({
   declarations: [
     AppComponent,
+    DeleteDialogComponent,
   ],
   imports: [
     AuthModule,

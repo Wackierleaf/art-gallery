@@ -11,7 +11,7 @@
         <mat-icon>edit</mat-icon>
         <span>{{'COMMON.EDIT' | translate}}</span>
       </button>
-      <button mat-menu-item>
+      <button mat-menu-item (click)="openConfirmationDialog()">
         <mat-icon>delete</mat-icon>
         <span>{{'COMMON.DELETE' | translate}}</span>
       </button>
