@@ -59,6 +59,17 @@ class ArtWorkController {
       }
     })
   }
+
+  async patchPaths(req, res, next) {
+    try {
+      const {id, paths} = req.body
+      console.log(id,paths);
+      await artWorkService.patchPaths(id, paths)
+      res.end()
+    } catch (e) {
+      next(e)
+    }
+  }
 }
 
 export default new ArtWorkController();

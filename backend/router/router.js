@@ -55,5 +55,6 @@ router.post('/art-works', upload.array('images', 4), artWorkController.createArt
 router.get('/art-works', artWorkController.getAllArtWork);
 router.get('/image', artWorkController.getImage)
 router.get('/delete-art', artWorkController.delete)
+router.post('/patch-paths', artWorkController.patchPaths)
 
 export default router;

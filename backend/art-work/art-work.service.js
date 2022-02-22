@@ -25,12 +25,18 @@ class ArtWorkService {
   }
 
   async editArtWork(id) {
-
   }
 
   async delete(_id) {
     const deletedArt = await artWorkModel.deleteOne({_id})
     return deletedArt
+  }
+
+  async patchPaths(id, paths) {
+    const {imagesPaths} = await artWorkModel.findById(id)
+    paths.forEach(path => imagesPaths.push(path))
+    const updatedArtWork = await artWorkModel.findByIdAndUpdate(id, {imagesPaths: imagesPaths})
+    console.log(updatedArtWork, id, paths);
   }
 }
 
