@@ -1,17 +1,20 @@
-import {Component, EventEmitter, OnDestroy, OnInit, Output} from '@angular/core';
+import {AfterViewInit, Component, ElementRef, EventEmitter, OnDestroy, OnInit, Output, ViewChild} from '@angular/core';
 import {MatDialog} from "@angular/material/dialog";
 import {AddArtModalComponent} from "../add-art-modal/add-art-modal.component";
-import {Subscription} from "rxjs";
+import {fromEvent, Subscription} from "rxjs";
 import {ArtWorksService} from "../../services/art-works.service";
 import {ArtDialogMode} from "../art-card/art-card.component";
+import {debounceTime, distinctUntilChanged, filter, map} from "rxjs/operators";
 
 @Component({
   selector: 'app-art-management-panel',
   templateUrl: './art-management-panel.component.html',
   styleUrls: ['./art-management-panel.component.scss']
 })
-export class ArtManagementPanelComponent implements OnInit, OnDestroy {
+export class ArtManagementPanelComponent implements OnInit, AfterViewInit, OnDestroy {
   @Output() addEvent = new EventEmitter();
+  @Output() searchEvent = new EventEmitter();
+  @ViewChild('artWorkSearch') searchInp: ElementRef;
 
   private subList = new Subscription();
 
@@ -21,6 +24,16 @@ export class ArtManagementPanelComponent implements OnInit, OnDestroy {
   ) { }
 
   ngOnInit(): void {
+  }
+
+  ngAfterViewInit() {
+    fromEvent(this.searchInp.nativeElement, 'keyup').pipe(
+      map((event: any) => event.target.value),
+      debounceTime(400),
+      distinctUntilChanged()
+    ).subscribe((text: string) => {
+      this.searchEvent.emit(text)
+    })
   }
 
   openArtModal() {

@@ -8,7 +8,7 @@
   <mat-card-content class="content">
     <mat-form-field appearance="outline" class="search-field">
       <mat-label>{{'COMMON.SEARCH' | translate}}</mat-label>
-      <input matInput autocomplete="off">
+      <input #artWorkSearch type="text" matInput autocomplete="off" >
       <mat-hint>{{('COMMON.MIN-CHAR' | translate) + ' 2'}}</mat-hint>
     </mat-form-field>
     <div class="actions">

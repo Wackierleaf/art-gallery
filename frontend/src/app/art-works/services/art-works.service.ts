@@ -25,6 +25,7 @@ export class ArtWorksService {
   private getImgUrl = 'api/image';
   private deleteArtWorks = 'api/delete-art'
   private patchPathsUrl = 'api/patch-paths'
+  private searchUrl = 'api/search-art'
 
   constructor(
     private readonly http: HttpClient
@@ -67,5 +68,9 @@ export class ArtWorksService {
 
   patchPaths(id: string, paths: string[]) {
     return this.http.post(this.patchPathsUrl, {paths, id})
+  }
+
+  search(searchValue: string) {
+    return this.http.get<ArtWork[]>(this.searchUrl, {params: {searchValue}})
   }
 }

@@ -46,4 +46,13 @@ export class LayoutComponent implements OnInit {
       this.init()
     }
   }
+
+  search(searchValue: string) {
+    if (searchValue.length === 0) {
+      this.init()
+    }
+    if (searchValue.length > 2) {
+      this.artWorks$ = this.artWorksService.search(searchValue)
+    }
+  }
 }

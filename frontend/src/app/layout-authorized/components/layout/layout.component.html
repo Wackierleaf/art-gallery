@@ -4,7 +4,7 @@
 <mat-tab-group>
   <mat-tab label="{{'MAIN.TABS.ARTS' | translate}}">
     <div class="tab">
-      <app-art-management-panel (addEvent)="addNewArtWorkHandler()"></app-art-management-panel>
+      <app-art-management-panel (searchEvent)="search($event)" (addEvent)="addNewArtWorkHandler()"></app-art-management-panel>
       <div class="cards-wrapper">
         <app-art-card (edit)="artWorkEditHandler($event)" (delete)="artWorkDeleteHandler($event)" *ngFor="let artWork of artWorks$ | async" [artWorkData]="artWork"></app-art-card>
       </div>
