@@ -29,6 +29,7 @@ export class AddArtModalComponent implements OnInit {
   art_types = ART_TYPES;
   mode: ArtDialogMode = 1;
   imagesPreviews: any[] = []
+  imagesWasEdit: boolean = false;
 
   private checkImgCount() {
    this.filesCountError = this.uploadedImages.length > 4;
@@ -97,7 +98,6 @@ export class AddArtModalComponent implements OnInit {
   }
 
   onImageSelected(value: any) {
-    console.log('selected')
     this.uploadedImages = [...value.target.files];
     this.artWorkForm.get('files')?.patchValue(this.uploadedImages);
     this.checkImgCount();
@@ -116,6 +116,7 @@ export class AddArtModalComponent implements OnInit {
     if (this.mode === ArtDialogMode.Editing) {
       this.data.imagesPaths.splice(imgIndex, 1)
       this.imagesPreviews.splice(imgIndex, 1)
+      this.imagesWasEdit = true;
     }
   }
 
@@ -136,7 +137,7 @@ export class AddArtModalComponent implements OnInit {
 
 
   submit() {
-    const result = {mode: this.mode,...this.artWorkForm.value}
+    const result = {id: this.data._id, imagesWasEdit: this.imagesWasEdit, paths: this.data.imagesPaths, mode: this.mode,...this.artWorkForm.value}
     this.dialogRef.close(result)
   }
 }

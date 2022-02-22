@@ -36,7 +36,6 @@ class ArtWorkService {
     const {imagesPaths} = await artWorkModel.findById(id)
     paths.forEach(path => imagesPaths.push(path))
     const updatedArtWork = await artWorkModel.findByIdAndUpdate(id, {imagesPaths: imagesPaths})
-    console.log(updatedArtWork, id, paths);
   }
 }
 

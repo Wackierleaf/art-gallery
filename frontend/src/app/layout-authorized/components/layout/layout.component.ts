@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {ArtWork, ArtWorksService} from "../../../art-works/services/art-works.service";
 import {Observable} from "rxjs";
+import {debounceTime} from "rxjs/operators";
 
 @Component({
   selector: 'app-layout',
@@ -22,7 +23,7 @@ export class LayoutComponent implements OnInit {
   ) { }
 
   private init() {
-    this.artWorks$ = this.artWorksService.getArtWorks();
+    this.artWorks$ = this.artWorksService.getArtWorks()
   }
 
   ngOnInit(): void {
@@ -36,6 +37,12 @@ export class LayoutComponent implements OnInit {
 
   artWorkDeleteHandler(result: boolean) {
     if (result) {
+      this.init()
+    }
+  }
+
+  artWorkEditHandler($event: any) {
+    if ($event) {
       this.init()
     }
   }

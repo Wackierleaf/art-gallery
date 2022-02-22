@@ -63,8 +63,19 @@ export class ArtCardComponent implements OnInit, OnDestroy {
     this.subList.add(
       dialogRef.afterClosed().subscribe(result => {
         if (result.mode === ArtDialogMode.Editing) {
-          console.log(result)
-          this.artWorksService.editArtWork(result)
+          this.artWorksService.deleteArtWork(result.id).subscribe(() => {
+            // @ts-ignore
+            this.artWorksService.createArtWorks(result.name, result.type, result.description, result.files).subscribe((newArtWork) => {
+              if (result.paths.lenght !== 0) {
+                // @ts-ignore
+                this.artWorksService.patchPaths(newArtWork.id, result.paths).subscribe(() => {
+                  this.edit.emit(true)
+                })
+              } else {
+                this.edit.emit(true)
+              }
+            })
+          })
         }
       })
     )

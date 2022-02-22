@@ -24,6 +24,7 @@ export class ArtWorksService {
   private artWorksUrl = 'api/art-works'
   private getImgUrl = 'api/image';
   private deleteArtWorks = 'api/delete-art'
+  private patchPathsUrl = 'api/patch-paths'
 
   constructor(
     private readonly http: HttpClient
@@ -64,6 +65,7 @@ export class ArtWorksService {
     return this.http.get(this.deleteArtWorks,{params: {_id}} )
   }
 
-  editArtWork(editedArtWork: ArtWork) {
+  patchPaths(id: string, paths: string[]) {
+    return this.http.post(this.patchPathsUrl, {paths, id})
   }
 }
