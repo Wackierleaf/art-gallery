@@ -37,6 +37,10 @@ class ArtWorkService {
     paths.forEach(path => imagesPaths.push(path))
     const updatedArtWork = await artWorkModel.findByIdAndUpdate(id, {imagesPaths: imagesPaths})
   }
+
+  async search(searchValue) {
+    return artWorkModel.fuzzySearch(searchValue);
+  }
 }
 
 export default new ArtWorkService();

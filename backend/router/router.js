@@ -56,5 +56,6 @@ router.get('/art-works', artWorkController.getAllArtWork);
 router.get('/image', artWorkController.getImage)
 router.get('/delete-art', artWorkController.delete)
 router.post('/patch-paths', artWorkController.patchPaths)
+router.get('/search-art', artWorkController.search)
 
 export default router;

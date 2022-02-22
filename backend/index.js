@@ -5,12 +5,17 @@ import dotenv from 'dotenv';
 import mongoose from 'mongoose';
 import router from './router/router.js';
 import errorMiddleware from './exceptions/error-middleware.js';
-import bodyParser from 'body-parser';
 
 dotenv.config();
 const app = express();
 const PORT = process.env.PORT || 5000;
 const DB_URL = process.env.DB_URL;
+const options = {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+    useFindAndModify: false,
+    useCreateIndex: true,
+};
 
 app.use(express.json());
 app.use(cookieParser());

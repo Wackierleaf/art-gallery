@@ -69,6 +69,16 @@ class ArtWorkController {
       next(e)
     }
   }
+
+  async search(req, res, next) {
+    try {
+      const {searchValue} = req.query
+      const searchResult = await artWorkService.search(searchValue)
+      return res.send(searchResult)
+    } catch (e) {
+      next(e)
+    }
+  }
 }
 
 export default new ArtWorkController();
