@@ -5,6 +5,7 @@
 			"BROWSE": "Browse your images",
 			"DESCRIPTION": "Description",
 			"DROP-FILES": "Drop your images here",
+			"EDITING-TITLE": "Editing Art Work",
 			"ERRORS": {
 				"IMAGE_COUNT": "Maximum count of files is 4"
 			},
@@ -28,6 +29,7 @@
 		"EDIT": "Edit",
 		"MIN-CHAR": "Minimum characters:",
 		"OR": "Or",
+		"SAVE": "Save",
 		"SEARCH": "Search"
 	},
 	"LOGIN": {

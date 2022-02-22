@@ -63,4 +63,7 @@ export class ArtWorksService {
   deleteArtWork(_id: string) {
     return this.http.get(this.deleteArtWorks,{params: {_id}} )
   }
+
+  editArtWork(editedArtWork: ArtWork) {
+  }
 }

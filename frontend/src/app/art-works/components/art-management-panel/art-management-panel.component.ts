@@ -3,6 +3,7 @@ import {MatDialog} from "@angular/material/dialog";
 import {AddArtModalComponent} from "../add-art-modal/add-art-modal.component";
 import {Subscription} from "rxjs";
 import {ArtWorksService} from "../../services/art-works.service";
+import {ArtDialogMode} from "../art-card/art-card.component";
 
 @Component({
   selector: 'app-art-management-panel',
@@ -28,6 +29,7 @@ export class ArtManagementPanelComponent implements OnInit, OnDestroy {
       maxWidth: '100vw',
       maxHeight: '100vh',
       height: window.innerHeight < 900 && window.innerWidth < 500 ? '100%' : 'fit-content',
+      data: {mode: ArtDialogMode.Creation}
     }).afterClosed().subscribe(result => {
       const {name, type, description, files} = result;
       this.artWorkService.createArtWorks(name, type, description, files)

@@ -1,4 +1,4 @@
-<h1 mat-dialog-title>{{'ART-MANAGEMENT.DIALOG.TITLE' | translate}}</h1>
+<h1 mat-dialog-title>{{dialogTitle | async}}</h1>
 
 <div>
   <form [formGroup]="artWorkForm">
@@ -31,19 +31,19 @@
 <!--IMAGES-->
   <div class="images">
     <div class="upload-drop-zone">
-      <span>{{'ART-MANAGEMENT.DIALOG.DROP-FILES' | translate}}</span>
-      <mat-icon class="file-upload-icon">file_upload</mat-icon>
-      <span>{{'COMMON.OR' | translate}}</span>
+<!--      <span>{{'ART-MANAGEMENT.DIALOG.DROP-FILES' | translate}}</span>-->
+<!--      <mat-icon class="file-upload-icon">file_upload</mat-icon>-->
+<!--      <span>{{'COMMON.OR' | translate}}</span>-->
       <button type="button" color="primary" class="upload-icon-btn" mat-raised-button (click)="fileInput.click()">
         {{'ART-MANAGEMENT.DIALOG.BROWSE' | translate}}
       </button>
-      <input accept=".jpg,.jpeg,.png" multiple hidden (change)="onImageSelected($event)" #fileInput type="file" id="file">
+      <input accept=".jpg,.jpeg,.png" multiple hidden (input)="onImageSelected($event)" #fileInput type="file" id="file">
       <mat-error *ngIf="filesCountError">
         {{'ART-MANAGEMENT.DIALOG.ERRORS.IMAGE_COUNT' | translate}}
       </mat-error>
-      <div class="uploaded-images" *ngIf="uploadedImages.length !== 0">
-        <div *ngFor="let img of uploadedImages; index as imgIdx" class="image">
-          <span class="name">{{img.name}}</span>
+      <div class="uploaded-images" *ngIf="uploadedImages.length !== 0 || imagesPreviews.length !== 0">
+        <div *ngFor="let src of imagesPreviews; index as imgIdx" class="image-prev">
+          <img width="100px" height="100px" [src]="src">
           <button mat-icon-button>
             <mat-icon class="delete-uploaded-files-icon" (click)="deleteSelectedFile(imgIdx)">close</mat-icon>
           </button>
@@ -54,5 +54,5 @@
 </div>
 <div mat-dialog-actions class="modal-actions">
   <button mat-button [mat-dialog-close]>{{'COMMON.CANCEL' | translate}}</button>
-  <button [disabled]="artWorkForm.invalid" mat-button (click)="submit()">{{'COMMON.ADD' | translate}}</button>
+  <button [disabled]="artWorkForm.invalid" mat-button (click)="submit()">{{submitBtnName | async}}</button>
 </div>
