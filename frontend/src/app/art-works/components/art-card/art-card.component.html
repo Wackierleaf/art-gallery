@@ -17,7 +17,8 @@
       </button>
     </mat-menu>
   </mat-card-header>
-  <img mat-card-image [src]="imgUrl" alt="Photo of a Shiba Inu">
+  <ng-image-slider [images]="images" [infinite]="true" [imageSize]="{width: '400px', height: '380px'}"></ng-image-slider>
+<!--  <img mat-card-image [src]="imgUrl">-->
   <mat-card-content>
     <p>
       {{artWorkData.description}}

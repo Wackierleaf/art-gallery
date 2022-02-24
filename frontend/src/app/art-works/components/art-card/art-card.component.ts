@@ -21,6 +21,7 @@ export class ArtCardComponent implements OnInit, OnDestroy {
   @Output() delete = new EventEmitter()
   @Output() edit = new EventEmitter()
   imgUrl: string;
+  images: Array<object> = []
 
   private subList = new Subscription();
   constructor(
@@ -30,6 +31,13 @@ export class ArtCardComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.imgUrl = 'http://localhost:3000/api/image?path=' + this.artWorkData.imagesPaths[0]
+    this.artWorkData.imagesPaths.forEach(path => {
+      this.images.push({
+        image: 'http://localhost:3000/api/image?path=' + path,
+        alt: 'Image',
+        thumbImage: 'http://localhost:3000/api/image?path=' + path,
+      })
+    })
   }
 
   get getTranslationKey() {
