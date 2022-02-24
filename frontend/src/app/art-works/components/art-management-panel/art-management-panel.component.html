@@ -1,7 +1,10 @@
 <mat-card class="panel-container">
   <mat-card-header>
     <mat-card-title>
-      {{'ART-MANAGEMENT.HEADER' | translate}}
+      <span *ngIf="loggedUser?.isAdmin; else forUser">{{'ART-MANAGEMENT.HEADER' | translate}}</span>
+      <ng-template #forUser>
+        {{'ART-MANAGEMENT.HEADER-FOR-USER' | translate}}
+      </ng-template>
     </mat-card-title>
   </mat-card-header>
 
@@ -11,7 +14,7 @@
       <input #artWorkSearch type="text" matInput autocomplete="off" >
       <mat-hint>{{('COMMON.MIN-CHAR' | translate) + ' 2'}}</mat-hint>
     </mat-form-field>
-    <div class="actions">
+    <div class="actions" *ngIf="loggedUser?.isAdmin">
       <button color="primary" mat-mini-fab [matTooltip]="'ART-MANAGEMENT.ADD-BTN' | translate" (click)="openArtModal()">
         <mat-icon>add</mat-icon>
       </button>

@@ -11,7 +11,7 @@
     </div>
   </mat-tab>
 
-  <mat-tab label="{{'MAIN.TABS.USERS' | translate}}">
+  <mat-tab *ngIf="loggedUser.isAdmin" label="{{'MAIN.TABS.USERS' | translate}}">
     <span>There will be user filtration panel</span>
     <br>
     <span>There will be user information</span>

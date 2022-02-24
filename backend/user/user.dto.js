@@ -4,6 +4,7 @@ export class UserDto {
     city;
     id;
     isActivated;
+    isAdmin;
 
     constructor(model) {
         this.email = model.email;
@@ -11,5 +12,6 @@ export class UserDto {
         this.city = model.city;
         this.id = model._id;
         this.isActivated = model.isActivated;
+        this.isAdmin = model.isAdmin;
     }
 }

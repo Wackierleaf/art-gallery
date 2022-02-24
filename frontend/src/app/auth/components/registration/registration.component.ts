@@ -29,18 +29,20 @@ export class RegistrationComponent implements OnInit, OnDestroy {
       email: ['', [Validators.required, Validators.email]],
       city: [],
       password: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(30)]],
-      repeatedPassword: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(30)]]
+      repeatedPassword: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(30)]],
+      isAdmin: [false]
     }, {validators: this.checkPasswords})
   }
 
   submitRegisterForm() {
     if (!this.registrationForm.invalid) {
-      const {name, email, city, password} = this.registrationForm.value;
+      const {name, email, city, password, isAdmin} = this.registrationForm.value;
       const registrationData: IUser = {
         name,
         email,
         city,
-        password
+        password,
+        isAdmin
       }
 
      this.subListDestroy.add(this.authService.registerUser(registrationData).subscribe(() =>

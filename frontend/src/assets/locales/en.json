@@ -4,7 +4,6 @@
 		"DIALOG": {
 			"BROWSE": "Browse your images",
 			"DESCRIPTION": "Description",
-			"DROP-FILES": "Drop your images here",
 			"EDITING-TITLE": "Editing Art Work",
 			"ERRORS": {
 				"IMAGE_COUNT": "Maximum count of files is 4"
@@ -13,13 +12,14 @@
 			"TITLE": "Add a new art",
 			"TYPE": "Type",
 			"TYPES": {
-				"ARCHITECTURE": "",
-				"PHOTOS": "",
-				"PICTURES": "",
-				"SCULPTURE": ""
+				"ARCHITECTURE": "Architecture",
+				"PHOTOS": "Photos",
+				"PICTURES": "Pictures",
+				"SCULPTURE": "Sculpture"
 			}
 		},
-		"HEADER": "Art Management"
+		"HEADER": "Art Management",
+		"HEADER-FOR-USER": "Art Objects"
 	},
 	"COMMON": {
 		"ADD": "Add",
@@ -28,7 +28,6 @@
 		"DELETE-CONFIRMATION": "Are you sure you want to delete?",
 		"EDIT": "Edit",
 		"MIN-CHAR": "Minimum characters:",
-		"OR": "Or",
 		"SAVE": "Save",
 		"SEARCH": "Search"
 	},

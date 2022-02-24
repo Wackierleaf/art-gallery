@@ -3,7 +3,7 @@
     <div mat-card-avatar [style.background-image]="'url(' + imgUrl + ')'" class="header-image"></div>
     <mat-card-title>{{artWorkData.name}}</mat-card-title>
     <mat-card-subtitle>{{getTranslationKey | translate}}</mat-card-subtitle>
-    <button class="card-menu-btn" mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+    <button class="card-menu-btn" *ngIf="loggedUser.isAdmin" mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
       <mat-icon>more_vert</mat-icon>
     </button>
     <mat-menu #menu="matMenu">
@@ -18,7 +18,6 @@
     </mat-menu>
   </mat-card-header>
   <ng-image-slider [images]="images" [infinite]="true" [imageSize]="{width: '400px', height: '380px'}"></ng-image-slider>
-<!--  <img mat-card-image [src]="imgUrl">-->
   <mat-card-content>
     <p>
       {{artWorkData.description}}

@@ -5,6 +5,7 @@ import {AddArtModalComponent, ART_TYPES} from "../add-art-modal/add-art-modal.co
 import {MatDialog} from "@angular/material/dialog";
 import {DeleteDialogComponent} from "../../../common/delete-dialog/delete-dialog.component";
 import {Subscription} from "rxjs";
+import {AuthService, IUser} from "../../../auth/services/auth.service";
 
 export enum ArtDialogMode {
   Creation,
@@ -22,11 +23,13 @@ export class ArtCardComponent implements OnInit, OnDestroy {
   @Output() edit = new EventEmitter()
   imgUrl: string;
   images: Array<object> = []
+  loggedUser: IUser
 
   private subList = new Subscription();
   constructor(
     readonly artWorksService: ArtWorksService,
-    private readonly dialog: MatDialog
+    private readonly dialog: MatDialog,
+    private readonly authService: AuthService
   ) { }
 
   ngOnInit(): void {
@@ -38,6 +41,8 @@ export class ArtCardComponent implements OnInit, OnDestroy {
         thumbImage: 'http://localhost:3000/api/image?path=' + path,
       })
     })
+
+    this.loggedUser = this.authService.getLoggedUser()
   }
 
   get getTranslationKey() {

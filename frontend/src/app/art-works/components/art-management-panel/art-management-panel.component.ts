@@ -5,6 +5,7 @@ import {fromEvent, Subscription} from "rxjs";
 import {ArtWorksService} from "../../services/art-works.service";
 import {ArtDialogMode} from "../art-card/art-card.component";
 import {debounceTime, distinctUntilChanged, filter, map} from "rxjs/operators";
+import {AuthService, IUser} from "../../../auth/services/auth.service";
 
 @Component({
   selector: 'app-art-management-panel',
@@ -17,13 +18,16 @@ export class ArtManagementPanelComponent implements OnInit, AfterViewInit, OnDes
   @ViewChild('artWorkSearch') searchInp: ElementRef;
 
   private subList = new Subscription();
+  loggedUser: IUser | null
 
   constructor(
     public readonly dialog: MatDialog,
     private readonly artWorkService: ArtWorksService,
+    private readonly authService: AuthService
   ) { }
 
   ngOnInit(): void {
+    this.loggedUser = this.authService.getLoggedUser()
   }
 
   ngAfterViewInit() {

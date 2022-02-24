@@ -9,6 +9,7 @@ export interface IUser {
   name: string,
   city?: string,
   password: string,
+  isAdmin?: boolean,
   isActivated?: boolean,
 }
 
@@ -18,7 +19,7 @@ export interface IUser {
 export class AuthService {
   private readonly ACCESS_TOKEN = 'ACCESS_TOKEN';
   private readonly REFRESH_TOKEN = 'REFRESH_TOKEN';
-  private loggedUser: IUser | null = null;
+  public loggedUser: IUser | null = null;
 
   constructor(
     private readonly authApi: AuthApiService,
@@ -58,6 +59,10 @@ export class AuthService {
     );
   }
 
+  public getLoggedUser() {
+    return localStorage.getItem('currentUser') ? JSON.parse(<string>localStorage.getItem('currentUser')): null
+  }
+
   public registerUser(userData: IUser) {
     return this.authApi.register(userData);
   }
@@ -70,6 +75,7 @@ export class AuthService {
     this.loggedUser = loggedData.user;
     const {accessToken, refreshToken} = loggedData;
     this.storeTokens(accessToken, refreshToken);
+    localStorage.setItem('currentUser', JSON.stringify(loggedData.user))
   }
 
   private doLogoutUser() {

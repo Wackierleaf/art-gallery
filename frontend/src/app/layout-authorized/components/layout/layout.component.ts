@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {ArtWork, ArtWorksService} from "../../../art-works/services/art-works.service";
 import {Observable} from "rxjs";
 import {debounceTime} from "rxjs/operators";
+import {AuthService, IUser} from "../../../auth/services/auth.service";
 
 @Component({
   selector: 'app-layout',
@@ -10,6 +11,7 @@ import {debounceTime} from "rxjs/operators";
 })
 export class LayoutComponent implements OnInit {
   artWorks$: Observable<ArtWork[]>;
+  loggedUser: IUser
 
   readonly tabs = [
     'Выставка',
@@ -19,7 +21,8 @@ export class LayoutComponent implements OnInit {
   ]
 
   constructor(
-    private readonly artWorksService: ArtWorksService
+    private readonly artWorksService: ArtWorksService,
+    private readonly authSerive: AuthService
   ) { }
 
   private init() {
@@ -28,6 +31,7 @@ export class LayoutComponent implements OnInit {
 
   ngOnInit(): void {
     this.init()
+    this.loggedUser = this.authSerive.getLoggedUser()
   }
 
 
